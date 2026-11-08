@@ -1,0 +1,251 @@
+.page {
+  --contact-accent: #ff5263;
+  color: #fff;
+  background: #08090b;
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 84px 24px 100px;
+  overflow: hidden;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(237, 51, 72, 0.22), transparent 58%),
+    linear-gradient(180deg, #101115, #08090b);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero::after {
+  position: absolute;
+  z-index: -1;
+  right: -3%;
+  bottom: -45%;
+  color: rgba(255, 255, 255, 0.025);
+  content: "CHAKLO";
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(120px, 24vw, 320px);
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--contact-accent);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.hero h1 {
+  margin: 0 0 18px;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(50px, 7vw, 86px);
+  font-weight: 900;
+  line-height: 1.06;
+  letter-spacing: -3px;
+}
+
+.highlight {
+  color: var(--contact-accent);
+}
+
+.hero > p {
+  max-width: 570px;
+  margin: 0;
+  color: #b5b5bd;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.heroLink,
+.menuLink {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 0 23px;
+  border: 1px solid var(--contact-accent);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.heroLink {
+  margin-top: 26px;
+}
+
+.heroLink:hover,
+.menuLink:hover {
+  background: #ed3348;
+  transform: translateY(-2px);
+}
+
+.heroLink span,
+.menuLink span {
+  color: var(--contact-accent);
+  font-size: 16px;
+}
+
+.heroLink:hover span,
+.menuLink:hover span {
+  color: #fff;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 1280px;
+  margin: -35px auto 0;
+  padding: 0 32px 110px;
+}
+
+.card {
+  min-width: 0;
+  min-height: 290px;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  background: linear-gradient(145deg, #17181d, #101115);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.2);
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 82, 99, 0.55);
+}
+
+.icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  margin-bottom: 24px;
+  place-items: center;
+  border: 1px solid rgba(255, 82, 99, 0.45);
+  border-radius: 50%;
+  color: var(--contact-accent);
+  font-size: 19px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--contact-accent);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.card h2 {
+  margin: 0 0 12px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.card > a:not(.mapLink),
+.address {
+  display: block;
+  margin: 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.card > p:not(.address) {
+  margin: 9px 0 0;
+  color: #a5a5ad;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.mapLink {
+  display: inline-flex;
+  gap: 8px;
+  margin-top: 13px;
+  color: var(--contact-accent);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.mapLink:hover {
+  color: #fff;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 68px max(8%, calc((100% - 1216px) / 2));
+  background: #101115;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bottom .eyebrow {
+  margin-bottom: 9px;
+}
+
+.bottom h2 {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(23px, 3.2vw, 36px);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: 430px;
+    padding: 70px 22px 86px;
+  }
+
+  .details {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-top: -24px;
+    padding: 0 22px 82px;
+  }
+
+  .card {
+    min-height: 230px;
+    padding: 28px;
+  }
+
+  .icon {
+    margin-bottom: 18px;
+  }
+
+  .bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 42px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .heroLink,
+  .menuLink {
+    transition: none;
+  }
+}
