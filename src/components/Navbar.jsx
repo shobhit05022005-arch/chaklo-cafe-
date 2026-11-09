@@ -114,10 +114,11 @@ export default function Navbar() {
         <button
           type="button"
           className="mobile-menu-toggle"
+          aria-expanded={menuOpen}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation"
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
         >
-          {menuOpen ? "✕" : "☰"}
+          {menuOpen ? String.fromCharCode(215) : String.fromCharCode(9776)}
         </button>
 
         <nav
@@ -348,8 +349,9 @@ export default function Navbar() {
       </header>
 
       {/* FLOATING CART: SCREEN KE BOTTOM-RIGHT CORNER MEIN */}
-      {pathname !== "/contact" && (
+      {pathname !== "/contact" && cartCount > 0 && (
         <div
+          className="floating-cart-bar"
           style={{
             position: "fixed",
             right: "24px",
@@ -366,28 +368,18 @@ export default function Navbar() {
             maxWidth: "calc(100vw - 32px)",
           }}
         >
-          <button
-            type="button"
-            onClick={() => setCartOpen(true)}
-            style={{
-              border: "none",
-              background: "transparent",
-              color: "inherit",
-              textAlign: "left",
-              cursor: "pointer",
-            }}
-          >
+          <Link href="/cart" className="floating-cart-summary">
             <div style={{ fontWeight: 800 }}>
-              🛒 {cartCount} {cartCount === 1 ? "item" : "items"}
+              &#128722; {cartCount} {cartCount === 1 ? "item" : "items"}
             </div>
-
             <div style={{ fontSize: "18px", fontWeight: 800, marginTop: "4px" }}>
-              ₹{cartTotal}
+              &#8377;{cartTotal}
             </div>
-          </button>
+          </Link>
 
           <Link
             href="/cart"
+            className="floating-cart-checkout"
             style={{
               background: "#111",
               color: "#fff",

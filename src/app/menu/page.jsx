@@ -21,7 +21,7 @@ const foodItems = [
     description: "A delicious burger packed with flavour.",
     price: 199,
     category: "Burgers",
-    image: "/burger.png",
+    image: "/products/classic-burger.jpg",
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const foodItems = [
     description: "A tasty burger for your cravings.",
     price: 249,
     category: "Burgers",
-    image: "/burger.png",
+    image: "/products/cheese-burger.jpg",
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const foodItems = [
     description: "A delicious pizza loaded with flavour.",
     price: 299,
     category: "Pizza",
-    image: "/pizza.png",
+    image: "/products/classic-pizza.jpg",
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ const foodItems = [
     description: "A chilled and creamy coffee experience.",
     price: 129,
     category: "Beverages",
-    image: "/coffe.png",
+    image: "/products/cold-coffee.jpg",
   },
   {
     id: 5,
@@ -53,7 +53,7 @@ const foodItems = [
     description: "A refreshing chilled drink.",
     price: 99,
     category: "Beverages",
-    image: "/colddrink.png",
+    image: "/products/refreshing-cold-drink.jpg",
   },
   {
     id: 6,
@@ -61,7 +61,7 @@ const foodItems = [
     description: "Crispy chicken, fresh lettuce, and cafe sauce in a toasted bun.",
     price: 229,
     category: "Burgers",
-    image: "/burger.png",
+    image: "/products/crispy-chicken-burger.jpg",
   },
   {
     id: 7,
@@ -69,7 +69,7 @@ const foodItems = [
     description: "A golden veg patty with cheese, lettuce, and creamy sauce.",
     price: 169,
     category: "Burgers",
-    image: "/burger.png",
+    image: "/products/veg-cheese-burger.jpg",
   },
   {
     id: 8,
@@ -77,7 +77,7 @@ const foodItems = [
     description: "Classic tomato sauce, mozzarella, and herbs on a crisp base.",
     price: 249,
     category: "Pizza",
-    image: "/pizza.png",
+    image: "/products/margherita-pizza.jpg",
   },
   {
     id: 9,
@@ -85,7 +85,7 @@ const foodItems = [
     description: "Paneer, peppers, and a smoky tikka-inspired cafe sauce.",
     price: 329,
     category: "Pizza",
-    image: "/pizza.png",
+    image: "/products/paneer-tikka-pizza.jpg",
   },
   {
     id: 10,
@@ -93,7 +93,7 @@ const foodItems = [
     description: "Crispy golden fries, lightly salted and served hot.",
     price: 99,
     category: "Snacks",
-    icon: "🍟",
+    image: "/products/classic-french-fries.jpg",
   },
   {
     id: 11,
@@ -101,7 +101,7 @@ const foodItems = [
     description: "Golden fries tossed in a lively peri peri seasoning.",
     price: 129,
     category: "Snacks",
-    icon: "🍟",
+    image: "/products/peri-peri-fries.jpg",
   },
   {
     id: 12,
@@ -109,7 +109,7 @@ const foodItems = [
     description: "Toasted bread with melted cheese and crunchy vegetables.",
     price: 149,
     category: "Snacks",
-    icon: "🥪",
+    image: "/products/grilled-cheese-sandwich.jpg",
   },
   {
     id: 13,
@@ -117,7 +117,7 @@ const foodItems = [
     description: "A warm, smooth coffee for a quick cafe break.",
     price: 89,
     category: "Beverages",
-    image: "/coffe.png",
+    image: "/products/hot-coffee.jpg",
   },
   {
     id: 14,
@@ -125,7 +125,7 @@ const foodItems = [
     description: "Coffee topped with a soft, creamy milk foam.",
     price: 129,
     category: "Beverages",
-    image: "/coffe.png",
+    image: "/products/cafe-cappuccino.jpg",
   },
   {
     id: 15,
@@ -133,7 +133,7 @@ const foodItems = [
     description: "Chilled espresso and milk served over ice.",
     price: 149,
     category: "Beverages",
-    image: "/coffe.png",
+    image: "/products/iced-latte.jpg",
   },
   {
     id: 16,
@@ -141,7 +141,119 @@ const foodItems = [
     description: "A refreshing lemon and mint cooler, served chilled.",
     price: 119,
     category: "Beverages",
-    image: "/colddrink.png",
+    image: "/products/mint-lemon-cooler.jpg",
+  },
+  {
+    id: 17,
+    name: "Paneer Crunch Burger",
+    description: "A crisp paneer patty with lettuce and a tangy cafe sauce.",
+    price: 189,
+    category: "Burgers",
+    image: "/products/paneer-crunch-burger.jpg",
+  },
+  {
+    id: 18,
+    name: "Chicken Cheese Burger",
+    description: "Grilled chicken, melted cheese, and crunchy fresh lettuce.",
+    price: 259,
+    category: "Burgers",
+    image: "/products/chicken-cheese-burger.jpg",
+  },
+  {
+    id: 19,
+    name: "Farmhouse Veg Pizza",
+    description: "A cheesy pizza topped with onion, peppers, corn, and olives.",
+    price: 329,
+    category: "Pizza",
+    image: "/products/farmhouse-veg-pizza.jpg",
+  },
+  {
+    id: 20,
+    name: "Spicy Chicken Pizza",
+    description: "Chicken, peppers, cheese, and a gently spicy cafe sauce.",
+    price: 359,
+    category: "Pizza",
+    image: "/products/spicy-chicken-pizza.jpg",
+  },
+  {
+    id: 21,
+    name: "Chicken Wrap",
+    description: "Seasoned chicken and fresh vegetables wrapped for an easy bite.",
+    price: 189,
+    category: "Snacks",
+    image: "/products/chicken-wrap.jpg",
+  },
+  {
+    id: 22,
+    name: "Veg Club Sandwich",
+    description: "A toasted triple-layer sandwich with vegetables and creamy spread.",
+    price: 159,
+    category: "Snacks",
+    image: "/products/veg-club-sandwich.jpg",
+  },
+  {
+    id: 23,
+    name: "Chicken Nuggets",
+    description: "Crispy golden chicken bites served with a cafe dip.",
+    price: 179,
+    category: "Snacks",
+    image: "/products/chicken-nuggets.jpg",
+  },
+  {
+    id: 24,
+    name: "Chilli Cheese Toast",
+    description: "Toasted bread with melted cheese, herbs, and a little chilli.",
+    price: 129,
+    category: "Snacks",
+    image: "/products/chilli-cheese-toast.jpg",
+  },
+  {
+    id: 25,
+    name: "Masala Chai",
+    description: "A comforting cup of tea with warming Indian spices.",
+    price: 49,
+    category: "Beverages",
+    image: "/products/masala-chai.jpg",
+  },
+  {
+    id: 26,
+    name: "Espresso",
+    description: "A short, bold coffee shot with a smooth finish.",
+    price: 99,
+    category: "Beverages",
+    image: "/products/espresso.jpg",
+  },
+  {
+    id: 27,
+    name: "Hot Chocolate",
+    description: "Rich chocolate and warm milk for a cosy cafe treat.",
+    price: 139,
+    category: "Beverages",
+    image: "/products/hot-chocolate.jpg",
+  },
+  {
+    id: 28,
+    name: "Classic Mojito",
+    description: "A chilled lime and mint cooler with a sparkling finish.",
+    price: 129,
+    category: "Beverages",
+    image: "/products/classic-mojito.jpg",
+  },
+  {
+    id: 29,
+    name: "Orange Soda",
+    description: "A bright, fizzy orange drink served chilled.",
+    price: 79,
+    category: "Beverages",
+    image: "/products/orange-soda.jpg",
+  },
+  {
+    id: 30,
+    name: "Bottled Water",
+    description: "Chilled bottled water.",
+    price: 25,
+    category: "Beverages",
+    image: "/products/bottled-water.jpg",
   },
 ];
 
@@ -193,11 +305,11 @@ function MenuCard({
         <div className="food-card-bottom">
           {/* Price */}
           <div className="food-price-box">
-            <span className="food-price">₹{item.price}</span>
+            <span className="food-price">&#8377;{item.price}</span>
 
             {cartQuantity > 0 && (
               <span className="food-subtotal">
-                Subtotal: ₹{item.price * cartQuantity}
+                Subtotal: &#8377;{item.price * cartQuantity}
               </span>
             )}
           </div>
@@ -209,7 +321,7 @@ function MenuCard({
               className="food-add-btn food-add-to-cart"
               onClick={() => onAddToCart(item)}
             >
-              <span aria-hidden="true">🛒</span>
+              <span aria-hidden="true">&#128722;</span>
               <span>Add to Cart</span>
             </button>
           ) : (
@@ -221,7 +333,7 @@ function MenuCard({
                 onClick={() => onRemoveFromCart(item)}
                 aria-label={`Decrease ${item.name} quantity`}
               >
-                −
+                &#8722;
               </button>
 
               <span className="quantity-number">

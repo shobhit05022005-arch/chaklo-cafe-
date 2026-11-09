@@ -7,6 +7,9 @@ import { cafeInfo } from "@/lib/cafe-info";
 export default function CartPage() {
   const [cart, setCart] = useState([]);
   const [mounted, setMounted] = useState(false);
+  const [customerName, setCustomerName] = useState("");
+  const [fulfillment, setFulfillment] = useState("");
+  const [deliveryAddress, setDeliveryAddress] = useState("");
 
   // Load cart from localStorage
   useEffect(() => {
@@ -79,18 +82,35 @@ export default function CartPage() {
     0
   );
 
-  const orderMessage = [
-    "Hi Chaklo Cafe, I would like to place this order:",
-    ...cart.map(
-      (item) =>
-        `${item.name} x ${item.quantity} — ₹${(
-          Number(item.price || 0) * Number(item.quantity || 0)
-        ).toLocaleString("en-IN")}`
-    ),
-    `Subtotal: ₹${subtotal.toLocaleString("en-IN")}`,
-    "Please confirm availability and delivery or pickup details.",
-  ].join("\n");
-  const whatsappOrderUrl = `https://wa.me/${cafeInfo.whatsappNumber}?text=${encodeURIComponent(orderMessage)}`;
+  function handleOrderSubmit(event) {
+    event.preventDefault();
+
+    const orderMessage = [
+      "Hi Chaklo Cafe, I would like to place an order.",
+      `Name: ${customerName.trim()}`,
+      `Request: ${
+        fulfillment === "delivery"
+          ? "Delivery (please confirm availability)"
+          : "Pickup"
+      }`,
+      ...(fulfillment === "delivery"
+        ? [`Address: ${deliveryAddress.trim()}`]
+        : []),
+      "",
+      "Items:",
+      ...cart.map(
+        (item) =>
+          `- ${item.name} x ${item.quantity}: \u20b9${(
+            Number(item.price || 0) * Number(item.quantity || 0)
+          ).toLocaleString("en-IN")}`
+      ),
+      `Subtotal: \u20b9${subtotal.toLocaleString("en-IN")}`,
+      "Please confirm availability, delivery or pickup, final amount, and estimated time.",
+    ].join("\n");
+
+    const whatsappOrderUrl = `https://wa.me/${cafeInfo.whatsappNumber}?text=${encodeURIComponent(orderMessage)}`;
+    window.open(whatsappOrderUrl, "_blank", "noopener,noreferrer");
+  }
 
   // Prevent hydration mismatch
   if (!mounted) {
@@ -282,20 +302,60 @@ export default function CartPage() {
               availability, delivery or pickup, and the final amount.
             </p>
 
-            <div className="cart-order-buttons">
-              <Link href="/menu" className="cart-primary-btn">
-                Add More Items
-              </Link>
-
-              <a
-                href={whatsappOrderUrl}
-                className="cart-contact-btn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Send Order on WhatsApp
-              </a>
-            </div>
+            <form className="cart-order-form" onSubmit={handleOrderSubmit}>
+              <div className="cart-order-fields">
+                <label className="cart-order-field">
+                  Your name
+                  <input
+                    type="text"
+                    name="customerName"
+                    autoComplete="name"
+                    value={customerName}
+                    onChange={(event) => setCustomerName(event.target.value)}
+                    placeholder="Enter your name"
+                    required
+                  />
+                </label>
+                <label className="cart-order-field">
+                  Pickup or delivery request
+                  <select
+                    name="fulfillment"
+                    value={fulfillment}
+                    onChange={(event) => setFulfillment(event.target.value)}
+                    required
+                  >
+                    <option value="" disabled>Select one</option>
+                    <option value="pickup">Pickup from cafe</option>
+                    <option value="delivery">Request delivery</option>
+                  </select>
+                </label>
+                {fulfillment === "delivery" && (
+                  <label className="cart-order-field cart-order-address">
+                    Delivery address
+                    <textarea
+                      name="deliveryAddress"
+                      value={deliveryAddress}
+                      onChange={(event) => setDeliveryAddress(event.target.value)}
+                      placeholder="Enter your full delivery address"
+                      rows={3}
+                      required
+                    />
+                  </label>
+                )}
+              </div>
+              <p className="cart-order-hint">
+                Delivery availability and charges will be confirmed by the cafe.
+                WhatsApp opens with your order ready to send.
+              </p>
+              <div className="cart-order-buttons">
+                <Link href="/menu" className="cart-primary-btn">
+                  Add More Items
+                </Link>
+                <button type="submit" className="cart-contact-btn">
+                  Send Order on WhatsApp
+                </button>
+              </div>
+            </form>
           </section>
         )}
       </div>

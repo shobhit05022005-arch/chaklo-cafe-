@@ -8,7 +8,7 @@ const featuredItems = [
     description: "Juicy, saucy, and stacked with crisp cafe-style freshness.",
     price: 199,
     category: "Burgers",
-    image: "/burger.png",
+    image: "/products/classic-burger.jpg",
   },
   {
     id: "loaded-pizza",
@@ -16,7 +16,7 @@ const featuredItems = [
     description: "Golden crust, melted cheese, and bold toppings in every slice.",
     price: 299,
     category: "Pizza",
-    image: "/pizza.png",
+    image: "/products/classic-pizza.jpg",
   },
   {
     id: "cold-coffee",
@@ -24,14 +24,23 @@ const featuredItems = [
     description: "Creamy, chilled, and made for slow cafe conversations.",
     price: 129,
     category: "Beverages",
-    image: "/coffe.png",
+    image: "/products/cold-coffee.jpg",
   },
 ];
 
 export default function FeaturedMenu() {
   return (
     <section className="featured-section" id="featured-menu">
-      <div className="section-heading">
+      <div className="section-heading featured-heading-panel">
+        <Image
+          src="/cafe-terrace.webp"
+          alt=""
+          fill
+          unoptimized
+          priority
+          sizes="100vw"
+          className="featured-heading-image"
+        />
         <span className="section-eyebrow">
           HOUSE FAVOURITES
         </span>

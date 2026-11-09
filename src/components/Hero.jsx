@@ -12,7 +12,7 @@ export default function Hero() {
         </span>
 
         <h1>
-          THE
+          <span className="hero-title-kicker">THE</span>
           <span>MIDNIGHT</span>
           <span>FEAST</span>
         </h1>
